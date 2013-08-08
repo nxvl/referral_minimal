@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-lg-8 col-offset-2" style="text-align: center;">
+      <h1>Grow the web with referrals!</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <form method="POST">
+      {% csrf_token %}
+      <div class="col-lg-4 col-offset-4">
+        Add a link
+        {{ form.title }}
+        <button type="submit" class="btn btn-default">Add</button>
+      </div>
+    </form>
+  </div>
+
+  <br />
+
+  <div class="row">
+    <div class="col-lg-8 col-offset-2" style="text-align: center;">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <td>Link Title</td>
+            <td>Clicks</td>
+            <td>Edit</td>
+            <td>Delete</td>
+          </tr>
+        </thead>
+        <tbody>
+        {% for link in links %}
+          <tr>
+            <td>{{ link.title }}</td>
+            <td>{{ link.clicks }}</td>
+            <td><a href>Edit</a></td>
+            <td><a href>Delete</a></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+{% endblock %}

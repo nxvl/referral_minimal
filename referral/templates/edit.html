@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <br />
+  <br />
+  <div class="row">
+    <form class="form-horizontal" method="POST">
+      <div class="form-group">
+        <label for="id_title" class="col-lg-2 control-label">Title</label>
+        <div class="col-lg-10">
+          {{ form.title }}
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="id_clicks" class="col-lg-2 control-label">Password</label>
+        <div class="col-lg-10">
+          {{ form.clicks }}
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-offset-2 col-lg-10">
+          <button type="submit" class="btn btn-default">Edit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+{% endblock %}

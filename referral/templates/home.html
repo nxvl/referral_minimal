@@ -36,8 +36,8 @@
           <tr>
             <td>{{ link.title }}</td>
             <td>{{ link.clicks }}</td>
-            <td><a href>Edit</a></td>
-            <td><a href>Delete</a></td>
+            <td><a href="/edit/{{ link.id }}/">Edit</a></td>
+            <td><a href="/delete/{{ link.id }}">Delete</a></td>
           </tr>
         {% endfor %}
         </tbody>

@@ -10,23 +10,23 @@ Authors:
 # Standard library imports
 
 # Framework imports
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 
 # 3rd party imports
 
 # Local imports
-from forms import LinkForm
+from forms import NewLinkForm, EditLinkForm
 from models import Link
 
 
 def home(request):
     if request.method == 'POST':
-        form = LinkForm(request.POST)
+        form = NewLinkForm(request.POST)
         if form.is_valid():
             form.save()
 
-    form = LinkForm()
+    form = NewLinkForm()
 
     links = Link.objects.all()
 
@@ -53,3 +53,28 @@ def landing(request):
     }
 
     return render(request, 'landing.html', data)
+
+
+def edit(request, link_id):
+    link = Link.objects.get(id=int(link_id))
+    if request.method == 'POST':
+        form = EditLinkForm(request.POST, instance=link)
+        if form.is_valid():
+            form.save()
+
+        return HttpResponseRedirect('/')
+
+    form = EditLinkForm(instance=link)
+
+    data = {
+        'form': form
+    }
+
+    return render(request, 'edit.html', data)
+
+
+def delete(request, link_id):
+    link = Link.objects.get(id=int(link_id))
+    link.delete()
+
+    return HttpResponseRedirect('/')

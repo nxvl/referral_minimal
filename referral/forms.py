@@ -16,7 +16,12 @@ from django.forms import ModelForm
 from models import Link
 
 
-class LinkForm(ModelForm):
+class NewLinkForm(ModelForm):
     class Meta:
         model = Link
-        fields = ('title',)
+        fields = ('title', )
+
+
+class EditLinkForm(ModelForm):
+    class Meta:
+        model = Link

@@ -5,6 +5,7 @@
   <br />
   <div class="row">
     <form class="form-horizontal" method="POST">
+      {% csrf_token %}
       <div class="form-group">
         <label for="id_title" class="col-lg-2 control-label">Title</label>
         <div class="col-lg-10">
@@ -12,7 +13,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="id_clicks" class="col-lg-2 control-label">Click/label>
+        <label for="id_clicks" class="col-lg-2 control-label">Clicks</label>
         <div class="col-lg-10">
           {{ form.clicks }}
         </div>

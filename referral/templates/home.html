@@ -34,7 +34,7 @@
         <tbody>
         {% for link in links %}
           <tr>
-            <td>{{ link.title }}</td>
+            <td><a href="/landing/?link={{ link.title }}">{{ link.title }}</a></td>
             <td>{{ link.clicks }}</td>
             <td><a href="/edit/{{ link.id }}/">Edit</a></td>
             <td><a href="/delete/{{ link.id }}">Delete</a></td>

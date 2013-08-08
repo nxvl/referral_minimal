@@ -21,5 +21,3 @@ class LinkAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Link, LinkAdmin)
-
-
